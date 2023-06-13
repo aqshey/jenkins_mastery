@@ -1,0 +1,11 @@
+
+
+changing the usermod while accessing the docker instance from standard usermod
+
+in our case. its jenkins
+
+adding it using root user
+
+use following command
+
+sudo usermod -aG docker username
