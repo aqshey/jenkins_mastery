@@ -1,11 +1,11 @@
+adding the user to group in order to access docker from standard user
 
+    sudo usermod -aG docker username
 
-changing the usermod while accessing the docker instance from standard usermod
+check where the docker installation is placed
 
-in our case. its jenkins
+    docker infor | grep -i root
 
-adding it using root user
+check how much space docker is taking
 
-use following command
-
-sudo usermod -aG docker username
+    sudo du -sh /var/lib/docker
