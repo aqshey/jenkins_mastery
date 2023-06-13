@@ -31,3 +31,9 @@ to start again
 to restart 
 
     docker-compose restart jenkins
+
+to completely delete your services
+
+    docker-compose down
+
+    
