@@ -13,3 +13,14 @@ check how much space docker is taking
 adding a permission for jenkins user to write data into the jenkins_home
 
     chown 1000:1000 jenkins_home -R
+
+
+starting the docker-compose app (navigate to the folder first)
+
+    docker-compose up -d
+
+to stop
+
+    docker-compose stop
+
+    
