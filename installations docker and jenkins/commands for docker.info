@@ -26,3 +26,8 @@ to stop
 to start again
 
     docker-compose start
+
+
+to restart 
+
+    docker-compose restart jenkins
