@@ -23,4 +23,6 @@ to stop
 
     docker-compose stop
 
-    
+to start again
+
+    docker-compose start
