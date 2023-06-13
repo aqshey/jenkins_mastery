@@ -1,5 +1,5 @@
 #!/bin/bash
 
-firstname = $1
-lastname = $2
+firstname=$1
+lastname=$2
 echo "hello $firstname $lastname"
