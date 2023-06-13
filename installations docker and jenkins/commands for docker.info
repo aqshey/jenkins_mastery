@@ -9,3 +9,7 @@ check where the docker installation is placed
 check how much space docker is taking
 
     sudo du -sh /var/lib/docker
+
+adding a permission for jenkins user to write data into the jenkins_home
+
+    chown 1000:1000 jenkins_home -R
