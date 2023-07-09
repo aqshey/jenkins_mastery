@@ -1,9 +1,0 @@
-steps
-
-created a virtual machine using centos
-
-created a putty session with running instance of centos
-
-installing docker in centos using putty. ssh session
-
-installing jenkins as a container service and expose it as a service to the server using docker command additional information can be found at commands.info
