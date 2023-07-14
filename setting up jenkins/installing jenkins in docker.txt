@@ -1,0 +1,5 @@
+for setting up jenkins in docker. we can use docker file or docker compose to create jenkins as service.
+
+we can simply pull and create jenkins with same image. but for long and multi container approach. we can follow the docker compose
+
+reference docker-compose.yml
