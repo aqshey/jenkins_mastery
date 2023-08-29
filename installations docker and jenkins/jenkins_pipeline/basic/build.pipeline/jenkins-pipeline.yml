@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+    //where i would like to defne my maven environment which can be a useful location to fetch and build my java project
+     environment {
+        // Define an environment variable pointing to the Jenkins-provided Maven installation
+        MVN_HOME = tool(name: 'Maven', type: 'hudson.tasks.Maven$MavenInstallation')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from a GitHub repository
+                // Replace with your repository URL and credentials
+                checkout([$class: 'GitSCM', 
+                    branches: [[name: '*/main']], 
+                    userRemoteConfigs: [[url: 'https://github.com/aqshey/java_springboot.git']]])
+            }
+        }
+         stage('Build') {
+            steps {
+              //if the pom.xml is in root folder then there is no need of setting up dir command
+                dir('path/to/your/java/project') {
+                    // Build the Java project using the Jenkins-provided Maven installation
+                    sh "${MVN_HOME}/bin/mvn clean install"
+                }
+            }
+        }    
+        // sonarqube analysis which can be useful in defining the code quality and standardize developement of the code which results in the better and stabilized code and sustainable solutions afterwards
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool(name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation').home
+                    withSonarQubeEnv('SonarQube Server') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
+        stage('Deploy to Nexus') {
+            steps {
+                dir('path/to/your/java/project') {
+                    sh "${MVN_HOME}/bin/mvn deploy"
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            // This block will be executed if the pipeline runs successfully
+            echo 'Project build completely and successfully'
+        }
+        
+        failure {
+            // This block will be executed if the pipeline fails
+            echo 'Pipeline failed!'
+        }
+    }
+}
