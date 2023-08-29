@@ -1,2 +1,0 @@
-before creating the ssh and add it to user. we need to create ssh keypair in the jenkins_data folder in order to copy pub file 
-to container. 

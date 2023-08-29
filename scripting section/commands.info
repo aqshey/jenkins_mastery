@@ -1,9 +1,0 @@
-to get inside of container
-
-    docker exec -it jenkins /bin/bash
-
-To copy files from host to container we use
-
-    docker cp filename container_name:/tmp/script.sh 
-
-after copying the data to container we can check it using getting bin bash to container itself
